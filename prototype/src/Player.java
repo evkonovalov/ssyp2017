@@ -29,15 +29,12 @@ public class Player {
     }
 
     public void update() {
-        System.out.println(velocity);
         Vector2f vecNow = getVec().scale((float) velocity);
-        System.out.println(vecNow.getX() + " " + vecNow.getY() + " " + vecNow.length());
         cor.setX(cor.getX() + vecNow.x);
         cor.setY(cor.getY() + vecNow.y);
         float width = size.getX()/2;
         float height = size.getY()/2 + 1;
         Vector2f dir = getVec().scale(height);
-        Vector2f perDir = getVec().getPerpendicular().scale(width);
         Point back = new Point(cor.getX() - dir.getX(),
                 cor.getY() - dir.getY());
         if (velocity != 0 && curWall == null) {
